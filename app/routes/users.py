@@ -7,7 +7,7 @@ from .. import schemas, models, crud, auth, dependencies
 
 router = APIRouter()
 
-# Token expiration time (can be modified)
+# Token expiration time
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 # --- User Registration ---
@@ -25,7 +25,7 @@ def register_user(user: schemas.UserCreate, db: Session = Depends(dependencies.g
     # Create the user
     return crud.create_user(db=db, user=user)
 
-# --- User Login (Token Generation) ---
+# --- User Login ---
 @router.post("/login", response_model=schemas.Token)
 def login_for_access_token(db: Session = Depends(dependencies.get_db), form_data: OAuth2PasswordRequestForm = Depends()):
     # Authenticate user based on username and password
@@ -49,11 +49,11 @@ def login_for_access_token(db: Session = Depends(dependencies.get_db), form_data
 # --- Get Current User Profile ---
 @router.get("/me", response_model=schemas.User)
 def read_users_me(current_user: schemas.User = Depends(dependencies.get_current_user)):
-    # Return the current user's profile data (username, email, etc.)
+    # Returns the current user's profile data
     return current_user
 
 # --- Get Current Admin User Profile ---
 @router.get("/admin/me", response_model=schemas.User)
 def read_admin_me(current_user: schemas.User = Depends(dependencies.get_current_admin_user)):
-    # Return the current admin's profile data
+    # Returns the current admin's profile data
     return current_user

@@ -60,7 +60,7 @@ This project implements a simple online bookstore backend using **FastAPI**. It 
 4.  **Set up the database**: Initialize the SQLite database and apply migrations:
     
     ```bash
-    alembic upgrade head  # Optional if using migrations
+    alembic upgrade head 
     ``` 
     
 

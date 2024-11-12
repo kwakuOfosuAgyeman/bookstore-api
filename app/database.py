@@ -5,9 +5,6 @@ from sqlalchemy.orm import sessionmaker
 # SQLite database URL for local development
 SQLALCHEMY_DATABASE_URL = "sqlite:///./bookstore.db"
 
-# If you want to use PostgreSQL in production:
-# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 )
