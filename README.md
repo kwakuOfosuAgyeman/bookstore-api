@@ -387,7 +387,7 @@ This project implements a simple online bookstore backend using **FastAPI**. It 
    
     
     ```bash
-    git clone https://github.com/your-username/fastapi-bookstore.git
+    git clone https://github.com/kwakuOfosuAgyeman/fastapi-bookstore.git
     cd fastapi-bookstore
     ``` 
     
